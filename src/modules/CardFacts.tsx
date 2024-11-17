@@ -5,6 +5,9 @@ import TemplateCard from './cards';
 interface CatFact {
     _id: string;
     text: string;
+    status: {
+        verified: boolean;
+      };
 }
 
 function GetCatFacts () {
@@ -43,7 +46,7 @@ function GetCatFacts () {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
           {catFacts.map((fact) => {
             console.log(fact);  
-            return <TemplateCard key={fact._id} text={fact.text} _id={fact._id}/>;
+            return <TemplateCard key={fact._id} text={fact.text} _id={fact._id} verified={fact.status.verified}/>;
           })}
         </div>
       )}

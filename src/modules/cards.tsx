@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom';
 interface CarTagProps {
   text?: string;
   _id?: number;
+  verified?: boolean;
 }
 
-function TemplateCard({ text = "test", _id = 0 }: CarTagProps) {
+function TemplateCard({ text = "test", _id = 0, verified }: CarTagProps) {
   const navigate = useNavigate(); 
 
   const handleCardClick = () => {
-    navigate(`/card/${_id}`, { state: { text } });  
+    navigate(`/card/${_id}`, { state: { text, verified } });  
   };
 
   return (
