@@ -41,9 +41,10 @@ function GetCatFacts () {
       {loadingError && <p style={{ color: 'red' }}>Error: {loadingError}</p>}
       {catFacts && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
-          {catFacts.map((fact) => (
-            <TemplateCard key={fact._id} text={fact.text} />
-          ))}
+          {catFacts.map((fact) => {
+            console.log(fact);  
+            return <TemplateCard key={fact._id} text={fact.text} _id={fact._id}/>;
+          })}
         </div>
       )}
     </div>
