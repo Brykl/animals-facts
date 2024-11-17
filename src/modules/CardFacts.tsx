@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import TemplateCard from './cards';
 
+
 interface CatFact {
     fact: object;
     _id: string;
@@ -12,9 +13,13 @@ interface CatFact {
     source: string;
     updatedAt: string;
     createdAt: string;
+    type: string;
 }
 
 function GetCatFacts () {
+
+
+
 
     const [ catFacts, setCatFacts ] = useState < CatFact[] | null > (null);
     const [ loadingError, setLoadingError ] = useState < string | null > (null);
@@ -51,7 +56,7 @@ function GetCatFacts () {
           {catFacts.map((fact) => {
             console.log(fact);  
             return <TemplateCard key={fact._id} text={fact.text} _id={fact._id}
-             verified={fact.status.verified} source={fact.source} updatedAt={fact.updatedAt} createdAt={fact.createdAt} fact={fact}/>;
+             verified={fact.status.verified} source={fact.source} updatedAt={fact.updatedAt} createdAt={fact.createdAt} fact={fact} />;
           })}
         </div>
       )}

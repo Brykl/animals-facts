@@ -10,6 +10,7 @@ function App() {
     <Router>
         <Routes>
           <Route path='/' element={<MainPages />}/>
+          <Route path='/cat' element={<MainPages />}/>
           <Route path='/card/:id' element={<CardDetail />}/>
         </Routes>
     </Router>
