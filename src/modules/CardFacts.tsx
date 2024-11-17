@@ -3,11 +3,15 @@ import { useState, useEffect } from 'react';
 import TemplateCard from './cards';
 
 interface CatFact {
+    fact: object;
     _id: string;
     text: string;
     status: {
         verified: boolean;
       };
+    source: string;
+    updatedAt: string;
+    createdAt: string;
 }
 
 function GetCatFacts () {
@@ -46,7 +50,8 @@ function GetCatFacts () {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
           {catFacts.map((fact) => {
             console.log(fact);  
-            return <TemplateCard key={fact._id} text={fact.text} _id={fact._id} verified={fact.status.verified}/>;
+            return <TemplateCard key={fact._id} text={fact.text} _id={fact._id}
+             verified={fact.status.verified} source={fact.source} updatedAt={fact.updatedAt} createdAt={fact.createdAt} fact={fact}/>;
           })}
         </div>
       )}

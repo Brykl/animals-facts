@@ -1,17 +1,21 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
 
-interface CarTagProps {
+interface CardTagProps {
   text?: string;
-  _id?: number;
+  _id?: string;
   verified?: boolean;
+  source?: string;
+  updatedAt?: string;
+  createdAt?: string;
+  fact: object;
 }
 
-function TemplateCard({ text = "test", _id = 0, verified }: CarTagProps) {
+function TemplateCard({ text = "test", _id, verified = false, source = 'unknown', updatedAt, createdAt, fact}: CardTagProps) {
   const navigate = useNavigate(); 
 
   const handleCardClick = () => {
-    navigate(`/card/${_id}`, { state: { text, verified } });  
+    navigate(`/card/${_id}`, { state: { text, verified, source, updatedAt, createdAt, fact } });  
   };
 
   return (
