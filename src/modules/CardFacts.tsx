@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-
+import TemplateCard from './cards';
 
 interface CatFact {
     _id: string;
@@ -37,15 +37,15 @@ function GetCatFacts () {
     return (
         <>
         <div>
-        {loading && <p>Loading...</p>}
-        {loadingError && <p style={{ color: 'red' }}>Error: {loadingError}</p>}
-        {catFacts && (
-            <ul>
-                {catFacts.map((fact) => (
-                    <li key={fact._id}>{fact.text}</li>
-                ))}
-            </ul>
-        )}
+      {loading && <p>Loading...</p>}
+      {loadingError && <p style={{ color: 'red' }}>Error: {loadingError}</p>}
+      {catFacts && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+          {catFacts.map((fact) => (
+            <TemplateCard key={fact._id} text={fact.text} />
+          ))}
+        </div>
+      )}
     </div>
         </>
     )

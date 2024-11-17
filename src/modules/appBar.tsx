@@ -1,4 +1,4 @@
-import * as React from 'react';
+import CircleTag from './circle';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -7,43 +7,60 @@ import Typography from '@mui/material/Typography';
 export default function DenseAppBar() {
   return (
     <>
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{
-          bgcolor: "#A4C0B6",
-          height: '10vh',
-        }}
-      >
-        <Toolbar
-          variant="dense"
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar
+          position="static"
           sx={{
+            bgcolor: "#A4C0B6",
+            height: '10vh',
             display: 'flex',
-            justifyContent: 'center', 
-            alignItems: 'center',   
-            height: '100%',         
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 0,
+            position: 'relative',  // Нужно для позиционирования круга относительно AppBar
           }}
         >
-          <Typography
-            variant="h6"
-            component="div"
+          <Box sx={{
+            position: 'absolute',  
+            right: '20px',          
+            top: '50%',            
+            transform: 'translateY(-50%)',  
+          }}>
+            <Box sx={{display: 'flex', gap: 2  }}>
+            <CircleTag color='white' size={20} />
+            <CircleTag color='white' size={20} />
+            <CircleTag color='white' size={20} />
+            </Box>
+          </Box>
+
+          <Toolbar
+            variant="dense"
             sx={{
-              fontSize: '45px',
-              lineHeight: 1, 
-              textAlign: 'center', 
+              display: 'flex',
+              justifyContent: 'center', 
+              alignItems: 'center',   
+              height: '100%',
             }}
           >
-            Cat Facts
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
-    <Box sx={{
-        height: '3vh',
-        bgcolor: 'white'
-    }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{
+                fontSize: '45px',
+                lineHeight: 1, 
+                textAlign: 'center', 
+              }}
+            >
+              Cat Facts
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Box>
 
-    </Box>
+      <Box sx={{
+        height: '1.2vh',
+        bgcolor: 'white'
+      }}></Box>
     </>
   );
 }
