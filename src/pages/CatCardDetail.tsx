@@ -33,7 +33,7 @@ function CardDetailPage() {
   return (
     <>
     <Box sx={{bgcolor: '#C5D5C9', height: '100vh', width: '100vw'}}>
-    <DenseAppBar name='Cat Facts' type="cat"/>
+    <DenseAppBar name='Cat Facts' type="cat" animalColor="#A4C0B6"/>
         <Box sx={{display: 'flex', color: '#3a55de'}}>
             <Typography variant="h6" sx={{paddingTop: 2, paddingLeft: 4,}}>
             This fact  {verified ? "has been verified" : "has not been verified"}

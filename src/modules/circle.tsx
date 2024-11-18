@@ -1,12 +1,23 @@
 import { Box } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 interface CircleTagProps {
   colorDefault?: string;
   colorHover?: string;
-  size?: number;  
+  size?: number;
+  type: string;  
 }
 
-export default function CircleTag({ colorDefault = "blue", size = 50, colorHover = '#81b0b8' }: CircleTagProps) {
+export default function CircleTag({ colorDefault = "blue", size = 50, colorHover = '#81b0b8', type }: CircleTagProps) {
+
+
+    const navigate = useNavigate(); 
+
+
+const handleCircleClick = () => {
+    navigate(`/${type}`); 
+}
+
   return (
     <Box
       sx={{
@@ -23,7 +34,8 @@ export default function CircleTag({ colorDefault = "blue", size = 50, colorHover
            bgcolor: colorHover, 
         }  
       }}
-    >
+
+     onClick={handleCircleClick}>
     </Box>
   );
 }
