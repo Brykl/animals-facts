@@ -6,7 +6,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
-export default function DenseAppBar() {
+
+
+interface NamePage  {
+    name: string;
+    type: animalType;
+}
+
+type animalType = 'cat' | 'dog' | 'horse';
+ 
+export default function DenseAppBar({name, type}: NamePage) {
 
     const navigate = useNavigate(); 
 
@@ -14,6 +23,8 @@ export default function DenseAppBar() {
       navigate(`/cat`);  
     };
 
+
+const colorNavigation: animalType = type;
 
 
   return (
@@ -28,7 +39,8 @@ export default function DenseAppBar() {
             justifyContent: 'center',
             alignItems: 'center',
             padding: 0,
-            position: 'relative',  // Нужно для позиционирования круга относительно AppBar
+            position: 'relative', 
+            
           }}
         >
           <Box sx={{
@@ -38,9 +50,9 @@ export default function DenseAppBar() {
             transform: 'translateY(-50%)',  
           }}>
             <Box sx={{display: 'flex', gap: 2  }}>
-            <CircleTag color='white' size={20} />
-            <CircleTag color='white' size={20} />
-            <CircleTag color='white' size={20} />
+            <CircleTag colorDefault={colorNavigation === 'cat' ? '#6d88b5' : 'white'} colorHover={colorNavigation === 'cat' ? '#6d88b5' : '#81b0b8'} size={20} />
+            <CircleTag colorDefault={colorNavigation === 'dog' ? '#6d88b5' : 'white'} colorHover={colorNavigation === 'dog' ? '#6d88b5' : '#81b0b8'} size={20} />
+            <CircleTag colorDefault={colorNavigation === 'horse' ? '#6d88b5' : 'white'} colorHover={colorNavigation === 'horse' ? '#6d88b5' : '#81b0b8'} size={20} />
             </Box>
           </Box>
 
@@ -66,7 +78,7 @@ export default function DenseAppBar() {
               }}
               onClick={handleHeaderClick} 
             >
-                Cat Facts
+                {name}
             </Typography>
           </Toolbar>
         </AppBar>
