@@ -59,7 +59,7 @@ function DogPage() {
                 border: '1px solid #826f5b',
                 marginLeft: 4, marginRight: 4 
                 }}>
-                {dogUrl && <img src={dogUrl} alt="Dog" style={{ maxHeight: '50vh', maxWidth: '20vw'}} /> }
+                {dogUrl && <img src={dogUrl} alt="Dog" style={{ maxHeight: '51vh', maxWidth: '20vw'}} /> }
                 <Box sx={{overflowY: 'auto',
                 overflowX: 'hidden'}}>
                     <Typography sx={{color: 'white', fontSize: '26px', margin: 2}}>{randomDogFact}</Typography>
